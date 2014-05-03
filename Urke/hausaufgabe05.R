@@ -107,14 +107,13 @@ print(frauen.studiengang.dichte)
 
 # Welche Gruppe hat gefehlt? Wie viele Datenpunkte gab es für die Gruppe?
 # (Keine explizite Antwort nötig, nur eine Überlegung.)
-summary(frauen)
 
 # Wir können auch die verschiedenen Maße der Streuung berechnen.
 # In R gibt es oft verschiedene Möglichkeiten, etwas zu machen. Wir haben bisher
 # Teile einer Datenmenge mit subset() rausgezogen, aber wir können das auch mit 
 # einer weiteren Syntax machen:
-#klinisch <- frauen[frauen$major == "M.A..Klinische.Linguistik",]
-#print(klinisch)
+klinisch <- frauen[frauen$major == "M.A..Klinische.Linguistik",]
+print(klinisch)
 
 # Das sieht erstmal sehr vervwirrend aus, ist es aber nicht. Die eckigen
 # Klammern bestimmen die Auswahl an Elementen. Wir haben das ja bei Indizen in
@@ -130,8 +129,10 @@ summary(frauen)
 # Jetzt brauchen wir die Teilmenge für die anderen beiden Studiengänge, 
 # Linguistik Kognition und Kommunikation und Speech Science
 # HINT: wie sehen die Namen aus bzw. wie werden sie im data frame buchstabiert?
-#linkk <- frauen[CODE_HIER]
-#speech <- frauen[CODE_HIER] 
+linkk <- frauen[frauen$major == "M.A..Linguistik.Kognition.und.Kommunikation",]
+print(linkk)
+speech <- frauen[frauen$major == "M.A..Speech.Science",] 
+print(speech)
 
 # Berechnen Sie -- ohne Hilfe von sd() -- die Standardabweichung für die Größe der drei 
 # Gruppen. Sie können auch weitere Zeilen hinzufügen, wenn es Ihnen so leichter
