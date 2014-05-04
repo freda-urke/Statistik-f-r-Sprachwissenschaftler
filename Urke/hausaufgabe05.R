@@ -1,6 +1,6 @@
 # Hausaufgabe 05
 # Frederike Urke <Urke@students.uni-marburg.de>
-# 2014-05-03
+# 2014-05-04
 # Diese Datei darf weiter als Beispiel genutzt werden.
 
 # Sie sollten die Datei auch in Ihren Ordner kopieren und einen Commit machen, 
@@ -138,11 +138,33 @@ print(speech)
 # Gruppen. Sie können auch weitere Zeilen hinzufügen, wenn es Ihnen so leichter
 # ist. 
 # HINT: Formel und Beispiel für die Berechnung auf den Folien!
-#klinisch.sd <- CODE_HIER
-#linkk.sd <- CODE_HIER
-#speech.sd <- CODE_HIER
+
+k <- (klinisch$height)
+abweichung.k <- k - mean(k)
+quadr.abweichung.k <- abweichung.k^2
+varianz.k <- mean(quadr.abweichung.k)
+varianz.k
+klinisch.sd <- sqrt(varianz.k)
+print(klinisch.sd)
+
+l <- (linkk$height)
+abweichung.l <- l - mean(l)
+quadr.abweichung.l <- abweichung.l^2
+varianz.l <- mean(quadr.abweichung.l)
+varianz.l
+linkk.sd <- sqrt(varianz.l)
+print(linkk.sd)
+
+s <- (speech$height)
+abweichung.s <- s - mean(s)
+quadr.abweichung.s <- abweichung.s^2
+varianz.s <- mean(quadr.abweichung.s)
+varianz.s
+speech.sd <- sqrt(varianz.s)
+print(speech.sd)
 
 # Berichten Sie jetzt die Mittelwerte und Standardabweichungen für die drei Gruppen. Die erste Gruppe steht hier als Muster:
-#print( paste("Studiengang: Klinische Linguistik","Mean:",mean(klinisch$height),"SD:",klinisch.sd) )
-#CODE_HIER
+print( paste("Studiengang: Klinische Linguistik","Mean:",mean(klinisch$height),"SD:",klinisch.sd) )
+print( paste("Studiengang: Linguistik Kognition und Kommunikation","Mean:",mean(linkk$height),"SD:",linkk.sd) )
+print( paste("Studiengang: Speech Science","Mean:",mean(speech$height),"SD:",speech.sd) )
 
