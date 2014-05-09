@@ -94,7 +94,7 @@ for(s in c(3,4,5) ){
 
 Wie steht die Anzahl guter Noten in Beziehung zur Anzahl schlechter Noten? 
 
-antwort_hier
+Es gibt doppelt so viele Möglichkeiten durchzufallen - in totalen Zahlen: 3 Noten für den Einer-Bereich und 6 Noten für den Durchgefallen-Bereich. Bei einer Änderung der Standardabweichung von relativ eng um den Mittelwert verteilt (s=3) über eine mittlere Standardabweichung um den Mittlwert (s=4) zu einer verhältnismäßig weiten Verteilung um den Mittwelwert (s=5), steigt die Möglichkeit durchzufallen "gleichmäßig" mit der Erhöhung der Standardabweichung.  
 
 Warum?
 
@@ -107,7 +107,7 @@ Schiefe (*skewness*) beschriebt die (A)Symmetrie einer Verteilung. Eine Verteilu
 
 Die Verteilung von Noten ist oft schief mit mehr guten Noten. Ist die Verteilung rechts- oder linksschief?
 
-antwort_hier
+linksschief
 
 Vielleicht hilft folgende Grafik mit der Visualisierung:
 
@@ -126,7 +126,11 @@ noten.dist
 
 Jetzt können wir die absoluten Häufigkeiten auch plotten:
 
-code_block_hier
+```{r}
+library(ggplot2)
+ggplot(data = noten.dist, aes(x = Notenpunkte, y = Anzahl, color = Standardabweichung)) + 
+    geom_line() + scale_x_continuous(limits = c(0, 16))
+```
 
 Beantworten Sie ein paar Fragen über die Verteilung, indem Sie den passenden R-Code einsetzen:
 
