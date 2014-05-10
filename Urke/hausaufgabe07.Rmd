@@ -171,44 +171,48 @@ Der kritische Wert für einen einseitigen $z$-Test ist `r qnorm(0.94)`
     
 
 Die kritischen Werte für einen zweiseitigen $z$-Test sind $\pm$ `r qnorm(0.97)`.
-    `r qnorm(0.96, mean=mu, sd=3)`
-    qnorm
 
 ### Gibt es einen Unterschied?
 Bei diesem Dozenten ist die Verwaltung wirklich unsicher, ob und was für einen Unterschied es geben könnte. (Welche Testart sollte man hier nutzen?)
 
-In einem kleinen Seminar mit 7 Studenten beträgt der Durchschnittswert 10. Unterscheidet sich der Notenspiegel von dem idealen? Berechnen Sie den $z$-Test:
+Es sollte ein ungerichteter Test (2-seitig) genutzt werden, da erst noch herausgefunden werden muss, ob überhaupt ein Unterschied zu anderen Dozenten bezüglich der Notengbung besteht. Würde man bereits wissen, ob der Dozent eher bessere oder eher schlechtere Noten zu geben scheint, wäre ein gerichteter Test sinnvoll.
 
-code_hier
+In einem kleinen Seminar mit 7 Studenten beträgt der Durchschnittswert 10. Unterscheidet sich der Notenspiegel von dem idealen? Berechnen Sie den $z$-Test: `r sqrt(7)*((10-8)/3)` $<$ `r qnorm(0.97)`. 
 
-Das ist ein **_eins_von_signifikanter_insignifikanter_** Unterschied. 
+Das ist ein **_insignifikanter_** Unterschied. 
 
-In einer Vorlesung vom selben Dozenten mit 50 Teilnehmern beträgt der Durchschnittswert wieder 10. (Es scheint, dass der Dozent 10 besonders toll findet.) Berechnen Sie den $z$-Test:
+In einer Vorlesung vom selben Dozenten mit 50 Teilnehmern beträgt der Durchschnittswert wieder 10. (Es scheint, dass der Dozent 10 besonders toll findet.) Berechnen Sie den $z$-Test: 
 
-code_hier
+`r sqrt(50)*((10-8)/3)` $>=$ `r qnorm(0.97)`
 
-Das ist ein **_eins_von_signifikanter_insignifikanter_** Unterschied. 
+Das ist ein **_signifikanter_** Unterschied. 
 
 Ist die Benotung vom Dozenten weniger als ideal? 
 
+Die Benotung durch den Dozenten scheint bei 50 Teilnehmern nicht der idealisierten Notenverteilung zu entsprechen. Bei 7 Teilnehmer jedoch, unterscheidet sich die Notenverteilung dieses Dozenten nicht signifikant von der idealisierten Notenverteilung.
+
 ### Ein anderer, böserer? Dozent
 Die Verwaltung ist auch auf einen anderen Dozenten aufmerksam geworden, weil manche Studenten behaupten, er würde zu streng benoten. (Welche Testart sollte man hier nutzen?)
+
+Da bereits bekannt ist, dass der Dozent eher schlechtere Noten gäbe, kann hier ein gerichteter, also einseitiger Test benutzt werden.
 
 In einem mittelgroßen Seminar mit 20 Studenten beträgt der Durchschnittswert 7. Der Dozent sagt, dass das wunderbar nah am Erwartungswert (8) ist, und dass man ihn in Ruhe lassen sollte. Ist er zu streng?
 
 Berechnen Sie den $z$-Test:
 
-code_hier
+    `r sqrt(20)*((7-8)/3)`
+    `r abs(sqrt(20)*((7-8)/3))` <= `r qnorm(0.94)`
 
-Das ist ein **_eins_von_signifikanter_insignifikanter_** Unterschied. 
+Das ist ein **_signifikanter_** Unterschied. 
 
 Später ergibt sich, dass es eigentlich 25 Studenten im Kurs gab. (Der Dozent hat "einen Tippfehler" gemacht, als er seine Teilnehmerzahl per Mail an die Verwaltung geschickt hat.) Der Durchschnittswert bleibt -- behauptet der Dozent -- immer noch bei 7. Er behauptet weiterhin, dass das wunderbar nah am Erwartungswert (8) ist, und dass man ihn in Ruhe lassen sollte. Ist er zu streng?
 
 Berechnen Sie den $z$-Test:
 
-code_hier
+    `r sqrt(25)*((7-8)/3)`
+    `r abs(sqrt(25)*((7-8)/3))` > `r qnorm(0.94)`
 
-Das ist ein **_eins_von_signifikanter_insignifikanter_** Unterschied. 
+Das ist ein **_insignifikanter_** Unterschied. 
 
 ## Zum Überlegen
 Gibt es einen Grund, weshalb die Noten normal verteilt sein sollten? Warum ist das die übliche Annahme?
