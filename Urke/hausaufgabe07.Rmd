@@ -203,7 +203,7 @@ Berechnen Sie den $z$-Test:
     `r sqrt(20)*((7-8)/3)`
     `r abs(sqrt(20)*((7-8)/3))` <= `r qnorm(0.94)`
 
-Das ist ein **_signifikanter_** Unterschied. 
+Das ist ein **_insignifikanter_** Unterschied. 
 
 Später ergibt sich, dass es eigentlich 25 Studenten im Kurs gab. (Der Dozent hat "einen Tippfehler" gemacht, als er seine Teilnehmerzahl per Mail an die Verwaltung geschickt hat.) Der Durchschnittswert bleibt -- behauptet der Dozent -- immer noch bei 7. Er behauptet weiterhin, dass das wunderbar nah am Erwartungswert (8) ist, und dass man ihn in Ruhe lassen sollte. Ist er zu streng?
 
@@ -212,7 +212,7 @@ Berechnen Sie den $z$-Test:
     `r sqrt(25)*((7-8)/3)`
     `r abs(sqrt(25)*((7-8)/3))` > `r qnorm(0.94)`
 
-Das ist ein **_insignifikanter_** Unterschied. 
+Das ist ein **_signifikanter_** Unterschied. 
 
 ## Zum Überlegen
 Gibt es einen Grund, weshalb die Noten normal verteilt sein sollten? Warum ist das die übliche Annahme?
