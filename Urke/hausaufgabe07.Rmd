@@ -224,4 +224,4 @@ bibliography()
 
 
 # Lizenz
-Dieses Werk ist lizenziert unter einer CC-BY-NC-SA Lizenz.
+Diese Datei darf weiter als Beispiel genutzt werden.
