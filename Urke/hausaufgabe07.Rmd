@@ -1,6 +1,6 @@
 % Hausaufgabe 07
 % Frederike Urke <Urke@students.uni-marburg.de>
-% 2014-05-09
+% 2014-05-11
 
 Falls die Umlaute in dieser und anderen Dateien nicht korrekt dargestellt werden, sollten Sie File > Reopen with Encoding > UTF-8 sofort machen (und auf jeden Fall ohne davor zu speichern), damit die Enkodierung korrekt erkannt wird! 
 
@@ -94,11 +94,11 @@ for(s in c(3,4,5) ){
 
 Wie steht die Anzahl guter Noten in Beziehung zur Anzahl schlechter Noten? 
 
-Es gibt doppelt so viele Möglichkeiten durchzufallen - in totalen Zahlen: 3 Noten für den Einer-Bereich und 6 Noten für den Durchgefallen-Bereich. Bei einer Änderung der Standardabweichung von relativ eng um den Mittelwert verteilt (s=3) über eine mittlere Standardabweichung um den Mittlwert (s=4) zu einer verhältnismäßig weiten Verteilung um den Mittwelwert (s=5), steigt die Möglichkeit durchzufallen "gleichmäßig" mit der Erhöhung der Standardabweichung.  
+Es gibt eine deutlich höhere Durchfallquote im Verhältnis zu der Anzahl der Noten im Einer-Bereich.
 
 Warum?
 
-antwort_hier
+Es gibt doppelt so viele Möglichkeiten durchzufallen - in totalen Zahlen: 3 Noten für den Einer-Bereich und 6 Noten für den Durchgefallen-Bereich. Bei einer Vergrößerung der Standardabwichung schlägt sich dieses Verhältnis auch in den Prozentzahlen bezüglich Durchfallquote und Einer-Bereich-Quote nieder.  
 
 ## Kurtosis und Schiefe
 Kurtosis (im Deutschen auch *Wölbung*) ist ein Maß dafür, wie spitz eine Verteilung ist. Die Normalverteilung wird nie zu extrem spitz -- der Gipfel bleibt immer schön rund, obwohl er manchmal eng wird. Andere Verteilungen (z.B. die Laplace-Verteilung ) haben Gipfel, die nicht rund sind.   
@@ -107,7 +107,7 @@ Schiefe (*skewness*) beschriebt die (A)Symmetrie einer Verteilung. Eine Verteilu
 
 Die Verteilung von Noten ist oft schief mit mehr guten Noten. Ist die Verteilung rechts- oder linksschief?
 
-linksschief
+Die Notenverteilung ist dann linksschief.
 
 Vielleicht hilft folgende Grafik mit der Visualisierung:
 
@@ -167,7 +167,7 @@ Um in dem besten 1% abzuschließen, muss man zumindest `r qnorm(0.99,mean=mu,sd=
 ## z-Transformation
 Bei der Überprüfung der Lehrqualität scheint es der Verwaltung, dass ein gewisser Dozent andere Noten als andere Dozenten vergibt. Es wird entschieden, dass der Notenspiegel bei den Teilnehmern in einem von seinen Kursen getestet wird, um zu schauen, ob er sich von signifikant von der idealisierten Notenverteilung ($\mu=8,\sigma=3$) unterscheidet. Um zu zeigen, dass Gott $\alpha=0.06$ so viel liebt wie $\alpha=0.05$ `r citep("10.1037/0003-066X.44.10.1276")`, setzt die Verwaltung das Signikanzniveau auf 0.06. 
 
-Der kritische Wert für einen einseitigen $z$-Test ist `r qnorm(0.94)`
+Der kritische Wert für einen einseitigen $z$-Test ist `r qnorm(0.94)`.
     
 
 Die kritischen Werte für einen zweiseitigen $z$-Test sind $\pm$ `r qnorm(0.97)`.
