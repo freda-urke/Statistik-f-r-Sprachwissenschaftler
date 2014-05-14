@@ -70,16 +70,16 @@ print(rt.plot)
 # Sie von vorneherein etwas behaupten haben.
 
 # Berechnen Sie jetzt den F-Test:
-#prob <- read.table("punkt_rt.tab", header=T)
-subj1 <- subset(rt$subj, subj=="1")
-subj2 <- subset(rt$subj, subj=="2")
-print(var.test (subj1$subj, subj2$subj))
+prob <- read.table("punkt_rt.tab", header=T)
+subj1 <- subset(prob, subj=="1")
+subj2 <- subset(prob, subj=="2")
+print(var.test (subj1$RT, subj2$RT))
 
 # Sind die Varianzen homogen? Vergessen Sie nicht, dass die Nullhypothese beim
 # F-Test "Varianzen Ungleich" ist.
 
 # Berechenen Sie den Levene Test:
-#print(CODE_HIER)
+print(leveneTest(subj1$RT~subj2$RT))
 
 # Sind die Varianzen homogen? Vergessen Sie nicht, dass die Nullhypothese beim
 # Levene Test "Varianzen Gleich" ist.
