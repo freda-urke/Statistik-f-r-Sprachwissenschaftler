@@ -79,7 +79,7 @@ print(var.test (subj1$RT, subj2$RT))
 # F-Test "Varianzen Ungleich" ist.
 
 # Berechenen Sie den Levene Test:
-print(leveneTest(subj1$RT~subj2$RT))
+print(leveneTest(prob$subj=="1" ~ prob$subj=="2"))
 
 # Sind die Varianzen homogen? Vergessen Sie nicht, dass die Nullhypothese beim
 # Levene Test "Varianzen Gleich" ist.
@@ -102,17 +102,17 @@ print(leveneTest(subj1$RT~subj2$RT))
 # print(paste("Die Differenz zwischen den beiden t-Werten ist",t.diff,"."))
 
 # Sind die Daten normal verteilt? Wir berechnen Sie den Shapiro Test für erste Versuchsperson:
-# shapiro <- shapiro.test(rt[rt$subj==1,"RT"])
+shapiro <- shapiro.test(rt[rt$subj==1,"RT"])
 # 
-# print(shapiro)
+print(shapiro)
 
 # Wir können auch "Entscheidungen" im Code treffen. Die Syntax dafür ist wie
 # folgt -- die runden und geschweiften Klammern sind alle sehr wichtig!
-# if (shapiro$p.value > 0.05){
-#   print("Shapiro's test insignikant, die Daten sind normal verteilt.")
-# }else{
-#   print("Shapiro's test signikant, die Daten sind nicht normal verteilt.")
-# }
+ if (shapiro$p.value > 0.05){
+   print("Shapiro's test insignikant, die Daten sind normal verteilt.")
+ }else{
+   print("Shapiro's test signikant, die Daten sind nicht normal verteilt.")
+ }
 
 # Berechnen Sie Shapiro's Test für die andere Versuchsperson und drücken Sie mit
 # einem if-Block aus, ob die Daten normal verteilt sind.
@@ -122,8 +122,8 @@ print(leveneTest(subj1$RT~subj2$RT))
 # Wir haben auch Transformationen bei schiefen Datenverteilungen angesprochen.
 # Die logaritmische Verteilung ist ziemlich beliebt bei Reaktionszeitsdaten.
 
-# rt$logRT <- log(rt$RT)
-# print(summary(rt$logRT))
+rt$logRT <- log(rt$RT)
+print(summary(rt$logRT))
 # logrt.plot <- CODE_HIER
 # print(logrt.plot)
 
