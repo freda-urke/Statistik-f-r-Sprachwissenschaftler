@@ -133,8 +133,8 @@ if (shapiro.2$p.value > 0.05){
 
 rt$logRT <- log(rt$RT)
 print(summary(rt$logRT))
-# logrt.plot <- CODE_HIER
-# print(logrt.plot)
+logrt.plot <-  plot(density(rt$logRT))
+print(logrt.plot)
 
 # Sieht die Verteilung besser aus? Sind die Varianzen "homogener" geworden? 
 # Berechnen Sie den F-Test und den Levene-Test für die logaritmisch skalierten 
