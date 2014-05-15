@@ -70,16 +70,16 @@ print(rt.plot)
 # Sie von vorneherein etwas behaupten haben.
 
 # Berechnen Sie jetzt den F-Test:
-prob <- read.table("punkt_rt.tab", header=T)
-subj1 <- subset(prob, subj=="1")
-subj2 <- subset(prob, subj=="2")
+subj1 <- subset(rt, subj=="1")
+subj2 <- subset(rt, subj=="2")
 print(var.test (subj1$RT, subj2$RT))
 
 # Sind die Varianzen homogen? Vergessen Sie nicht, dass die Nullhypothese beim
 # F-Test "Varianzen Ungleich" ist.
 
 # Berechenen Sie den Levene Test:
-print(leveneTest(prob$subj=="1" ~ prob$subj=="2"))
+subj.12 <- rt [rt$subj == "1" | rt$subj == "2", c("subj", "RT")]
+print(leveneTest(subj.12$RT ~ subj.12$subj))
 
 # Sind die Varianzen homogen? Vergessen Sie nicht, dass die Nullhypothese beim
 # Levene Test "Varianzen Gleich" ist.
@@ -88,18 +88,20 @@ print(leveneTest(prob$subj=="1" ~ prob$subj=="2"))
 # eine Korrektur der Freiheitsgerade macht. Bei homogener Varianz sollten beide
 # Variante ähnliche bzw. (fast) gleiche Ergebnisse liefern. Ist das hier der
 # Fall?
-# two.sample <- CODE_HIER
-# welch <- CODE_HIER
+subj1.rt <- rt[rt$subj == "1", "RT"]
+subj2.rt <- rt[rt$subj == "2", "RT"]
+two.sample <- t.test(subj1.rt, subj2.rt, var.equal=TRUE)
+welch <- t.test(subj1.rt, subj2.rt)
 
-# print(two.sample)
-# print(welch)
+print(two.sample)
+print(welch)
 
 # Das Ergebnis der verschiedenen Test-Funktionen in R ist übrigens eine Liste.
 # Wir können das ausnutzen, um zu schauen, ob es einen Unterschied zwischen den
 # beiden Testverfahren gab. Wenn die Varianz homogen war, sollten wir keinen
 # Unterschied sehen:
-# t.diff <- welch$statistic - two.sample$statistic
-# print(paste("Die Differenz zwischen den beiden t-Werten ist",t.diff,"."))
+t.diff <- welch$statistic - two.sample$statistic
+print(paste("Die Differenz zwischen den beiden t-Werten ist",t.diff,"."))
 
 # Sind die Daten normal verteilt? Wir berechnen Sie den Shapiro Test für erste Versuchsperson:
 shapiro <- shapiro.test(rt[rt$subj==1,"RT"])
