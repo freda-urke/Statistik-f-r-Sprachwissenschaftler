@@ -133,7 +133,7 @@ if (shapiro.2$p.value > 0.05){
 
 rt$logRT <- log(rt$RT)
 print(summary(rt$logRT))
-logrt.plot <-  plot(density(rt$logRT))
+logrt.plot <- qplot(x=rt$logRT,color=subj,fill=subj,data=rt, geom="density",alpha=I(0.3))
 print(logrt.plot)
 
 # Sieht die Verteilung besser aus? Sind die Varianzen "homogener" geworden? 
@@ -141,17 +141,24 @@ print(logrt.plot)
 # Daten. Nach jedem Test sollten Sie auch programmatisch (=durch if-Blöcke)
 # ausdrücken, ob die Varianzen homogen sind.
 
-# CODE_HIER
+print(var.test (rt$logRT, rt$subj))
+print(leveneTest(rt$logRT ~ rt$subj))
+
 
 # Sind die Daten "normaler" gewordern? Berechnen Sie den Shapiro-Test für beide 
 # Gruppen. Nach jeder Gruppe sollten Sie auch programmatisch (=durch if-Blöcke)
 # ausdrücken, ob die Daten normal verteilt sind. 
 # (Für die fortgeschrittenen: hier könnte man auch eine for-Schleife nutzen...)
 
-# CODE_HIER
+shapiro.logrt <- shapiro.test(rt$logRT)
+print(shapiro.logrt)
+
+shapiro.subj <- shapiro.test(rt[rt$subj==1 |rt$subj=="2", c("RT")])
+print(shapiro.subj)
 
 # Hat die logarithmische Transformation insgesamt geholfen? Berechnen Sie zum
 # Schluss den (Welch) t-Test für die logarithmischen Daten. Bekommen Sie das
 # gleiche Ergebnisse wie bei den Ausgangsdaten?
 
-# CODE_HIER
+welch <- t.test(rt$logRT, rt$subj)
+print(welch)
