@@ -1,6 +1,6 @@
 # Hausaufgabe 09
 # Frederike Urke <Urke@students.uni-marburg.de>
-# 2014-05-02
+# 2014-05-15
 # Lizenz
 # Diese Datei darf weiter als Beispiel genutzt werden.
 
@@ -119,7 +119,14 @@ print(shapiro)
 # Berechnen Sie Shapiro's Test für die andere Versuchsperson und drücken Sie mit
 # einem if-Block aus, ob die Daten normal verteilt sind.
 
-# CODE_HIER
+shapiro.2 <- shapiro.test(subj2.rt)
+print(shapiro.2)
+
+if (shapiro.2$p.value > 0.05){
+  print("Shapiro's test insignikant, die Daten sind normal verteilt.")
+}else{
+  print("Shapiro's test signikant, die Daten sind nicht normal verteilt.")
+}
 
 # Wir haben auch Transformationen bei schiefen Datenverteilungen angesprochen.
 # Die logaritmische Verteilung ist ziemlich beliebt bei Reaktionszeitsdaten.
