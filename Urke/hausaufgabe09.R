@@ -147,24 +147,55 @@ print(logrt.plot)
 # Daten. Nach jedem Test sollten Sie auch programmatisch (=durch if-Blöcke)
 # ausdrücken, ob die Varianzen homogen sind.
 
-print(var.test (rt$logRT, rt$subj))
-print(leveneTest(rt$logRT ~ rt$subj))
+subj1.logrt <- rt[rt$subj == "1", "logRT"]
+subj2.logrt <- rt[rt$subj == "2", "logRT"]
+f <- var.test (subj1.logrt, subj2.logrt)
+print(f)
 
+if (f$p.value > 0.05){
+  print("F-Test insignikant, die Daten sind homogen verteilt.")
+}else{
+  print("F-Test signikant, die Daten sind nicht heterogen verteilt.")
+}
+
+
+logrt.12 <- rt[rt$subj == "1" | rt$subj == "2", c("subj", "logRT")]
+
+l <- leveneTest(logrt.12$logRT ~ logrt.12$subj)
+print(l)
+
+if (l$Pr > 0.05){
+  print("Levene-Test insignikant, die Daten sind homogen verteilt.")
+}else{
+  print("Levene-Test signikant, die Daten sind nicht heterogen verteilt.")
+}
 
 # Sind die Daten "normaler" gewordern? Berechnen Sie den Shapiro-Test für beide 
 # Gruppen. Nach jeder Gruppe sollten Sie auch programmatisch (=durch if-Blöcke)
 # ausdrücken, ob die Daten normal verteilt sind. 
 # (Für die fortgeschrittenen: hier könnte man auch eine for-Schleife nutzen...)
 
-shapiro.logrt <- shapiro.test(rt$logRT)
-print(shapiro.logrt)
+shapiro.3 <- shapiro.test(rt[rt$subj==1, "logRT"])
+print(shapiro.3)
 
-shapiro.subj <- shapiro.test(rt[rt$subj==1 |rt$subj=="2", c("RT")])
-print(shapiro.subj)
+if (shapiro.3$p.value > 0.05){
+  print("Shapiro-Test insignikant, die Daten sind normal verteilt.")
+}else{
+  print("Shapiro-Test signikant, die Daten sind nicht normal verteilt.")
+}
+
+shapiro.4 <- shapiro.test(rt[rt$subj==2, "logRT"])
+print(shapiro.4)
+
+if (shapiro.4$p.value > 0.05){
+  print("Shapiro-Test insignikant, die Daten sind normal verteilt.")
+}else{
+  print("Shapiro-Test signikant, die Daten sind nicht normal verteilt.")
+}
 
 # Hat die logarithmische Transformation insgesamt geholfen? Berechnen Sie zum
 # Schluss den (Welch) t-Test für die logarithmischen Daten. Bekommen Sie das
 # gleiche Ergebnisse wie bei den Ausgangsdaten?
 
-welch <- t.test(rt$logRT, rt$subj)
+welch.log <- t.test(subj1.logrt, subj2.logrt)
 print(welch)
