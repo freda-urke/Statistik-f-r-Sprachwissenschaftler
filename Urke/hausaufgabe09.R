@@ -1,6 +1,6 @@
 # Hausaufgabe 09
 # Frederike Urke <Urke@students.uni-marburg.de>
-# 2014-05-15
+# 2014-05-19
 # Lizenz
 # Diese Datei darf weiter als Beispiel genutzt werden.
 
@@ -75,7 +75,8 @@ subj2 <- subset(rt, subj=="2")
 print(var.test (subj1$RT, subj2$RT))
 
 # Sind die Varianzen homogen? Vergessen Sie nicht, dass die Nullhypothese beim
-# F-Test "Varianzen Ungleich" ist.
+# F-Test "Varianzen Gleich" ist.
+# Nein, die Varianzen sind nicht homogen, da der Unterschied der Varianzen signifikant ist (p-Wert < 0.05).
 
 # Berechenen Sie den Levene Test:
 subj.12 <- rt [rt$subj == "1" | rt$subj == "2", c("subj", "RT")]
@@ -83,6 +84,8 @@ print(leveneTest(subj.12$RT ~ subj.12$subj))
 
 # Sind die Varianzen homogen? Vergessen Sie nicht, dass die Nullhypothese beim
 # Levene Test "Varianzen Gleich" ist.
+# Ja, die Varianzen sind homogen, da der Unterschied der Varianzen nicht signifikant ist (pr-Wert > 0.05).
+
 
 # Für heterogene Varianzen haben wir eine Variante des  t-Tests gesehen, die
 # eine Korrektur der Freiheitsgerade macht. Bei homogener Varianz sollten beide
@@ -95,6 +98,9 @@ welch <- t.test(subj1.rt, subj2.rt)
 
 print(two.sample)
 print(welch)
+
+# Beide Tests liefern relativ ähnliche Ergebnisse, somit leigt Varianzhomogenität vor.
+
 
 # Das Ergebnis der verschiedenen Test-Funktionen in R ist übrigens eine Liste.
 # Wir können das ausnutzen, um zu schauen, ob es einen Unterschied zwischen den
