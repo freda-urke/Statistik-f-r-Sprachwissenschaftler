@@ -90,6 +90,8 @@ print(xtable(priming.by.subject.wide2),type="html",include.rownames=FALSE)
 
 Welches Format macht am meisten Sinn?
 
+Das erste Format macht für mich mehr Sinn, da die Versuchspersonen in der Spalte dargestellt werden und so eine gute Übersicht gewähleistet ist. Letztenendes ist der Unterschied zwischen beiden Darstellungen aber nicht allzu groß.
+
 Natürlich müssen wir auch die Daten grafisch darstellen:
 ```{r}
 ggplot(data=priming.by.subject) + geom_density(aes(x=RT,color=cond,fill=cond),alpha=0.3)
@@ -99,6 +101,8 @@ ggplot(data=priming.by.subject) + geom_boxplot(aes(x=cond,y=RT,color=cond,fill=c
 ```
 
 Sind alle Plots gleich gut?
+
+Meiner Meinung nach, stellen die Dichte- und die Geigenform-Plots die Datenverteilung am besten dar, da gut erkennbar ist, wie schnell wieviele Versuchspersonen reagiert haben.
 
 ### By Item
 Bei "Item" berechnen wir die Mittelwerte aller Trials innerhalb eines Items, d.h. wir nehmen den itemweise Mittelwert über Versuchpersonen hinweg. Dafür können wir `aggregate()` nutzen.
@@ -124,6 +128,8 @@ ggplot(data=priming.by.item) + geom_density(aes(x=RT,color=cond,fill=cond),alpha
 ```
 
 Sehen die Daten by Subject und by Item gleich aus? Wie sehen sie im Vergleich zu den Single-Trial-Daten aus?
+
+Die Daten by Subject ähneln den Daten by Item zwar, aber gleich sind sie dennoch nicht. Bei Daten by Item sind insbesondere die jeweiligen Peaks der Kurven weiter auseinander als sie es bei Daten by Subject sind. Im Vergleich zu den Single-Trial-Daten unterscheiden sich Daten by Suject und by Item allein schon dadurch recht deutlich, dass für die Bedingung DD eine jeweils deutlich höhere Dichte zu erkennen ist, als für die anderen Bedingungen.
 
 # Subject- und Item-Analysen
 
@@ -248,4 +254,5 @@ print(xtable(priming.f1.german.target$ANOVA
 
 # Lizenz
 Dieses Werk ist lizenziert unter einer CC-BY-NC-SA Lizenz.
+
 Diese Datei darf weiter als Beispiel genutzt werden.
