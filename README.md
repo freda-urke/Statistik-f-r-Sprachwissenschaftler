@@ -102,6 +102,11 @@ Die Reihe *Use R!* von Springer ist **kostenlos** über das Uni-Netz elektronisc
 * [Git -- the simple guide](http://rogerdudler.github.io/git-guide/)
 * [Literate programming, version control, reproducible research, collaboration, and all that](http://rpubs.com/bbolker/3153)
 * [Handy statistical lexicon](http://andrewgelman.com/2009/05/24/handy_statistic/)
+
+# ShinyApps
+* [Optional Stopping](https://palday.shinyapps.io/optional_stopping/)
+* [Confidence Intervals](https://palday.shinyapps.io/confidence_intervals/)
+* [From the Binomial to the Normal Distribution](https://palday.shinyapps.io/binomial_gaussian/) (Ein Beispiel für den Zentralen Grenzwertsatz)
     
 # Kommentare zu p-Werten, NHST, und der üblichen statistischen Praxis
 * John Myles White
@@ -158,6 +163,7 @@ Die Reihe *Use R!* von Springer ist **kostenlos** über das Uni-Netz elektronisc
     - [Sample mean and sample covariance](https://en.wikipedia.org/wiki/Sample_mean_and_sample_covariance)
     - [How exactly did statisticians agree to using (n-1) as the unbiased estimator for population variance without simulation?](http://stats.stackexchange.com/questions/100041/how-exactly-did-statisticians-agree-to-using-n-1-as-the-unbiased-estimator-for)
 * Konfidenz- und Credible Intervale 
+    - [Are there any examples where Bayesian credible intervals are obviously inferior to frequentist confidence intervals](http://stats.stackexchange.com/questions/2356/are-there-any-examples-where-bayesian-credible-intervals-are-obviously-inferior)
     - [Why does a 95% CI not imply a 95% chance of containing the mean?](http://stats.stackexchange.com/questions/26450/why-does-a-95-ci-not-imply-a-95-chance-of-containing-the-mean)
     - [What does a confidence interval (vs. a credible interval) actually express?](http://stats.stackexchange.com/questions/13655/what-does-a-confidence-interval-vs-a-credible-interval-actually-express)
     - [Why do (a lot) fewer than 95% of my confidence intervals intersect the true parameter value in this simulation?](http://stats.stackexchange.com/questions/60809/why-do-a-lot-fewer-than-95-of-my-confidence-intervals-intersect-the-true-para?rq=1)
