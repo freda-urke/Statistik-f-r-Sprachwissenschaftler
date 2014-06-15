@@ -1,6 +1,6 @@
 % Hausaufgabe 16
-% Phillip Alday <phillip.alday@staff.uni-marburg.de>
-% 2014-06-11
+% Frederike Urke <Urke@students.uni-marburg.de>
+% 2014-06-13
 
 Falls die Umlaute in dieser und anderen Dateien nicht korrekt dargestellt werden, sollten Sie File > Reopen with Encoding > UTF-8 sofort machen (und auf jeden Fall ohne davor zu speichern), damit die Enkodierung korrekt erkannt wird! 
 
@@ -28,6 +28,7 @@ Bisher haben Sie von mir mehr oder weniger vollständige Analysen bekommen, bei 
 
 ```{r, eval=FALSE}
 ?diamonds
+summary(diamonds)
 ```
 <div style="border: 2px solid black; padding: 5px; font-size: 80%;">
 ```{r, echo=FALSE, results='asis'}
@@ -58,8 +59,29 @@ ggplot(diamonds,aes(x=carat,y=price,color=color)) + geom_point(alpha=0.3)
 ggplot(diamonds,aes(x=carat,y=price,color=color)) + geom_point() + facet_wrap(~color)
 ```
 
+# Berechnung
+Ausgangsfrage: Haben Gewicht (carat) und Schliff/Schnitt (cut) einen Einfluss auf den Preis?
+
+```{r}
+anova.1 <- aov(price ~ carat*cut, data=diamonds)
+summary(anova.1)
+```
+
+```{r}
+ggplot(diamonds, aes(x=carat, y=price, color=cut)) + geom_point() + facet_wrap(~cut)
+```
+
+Gewicht und Schliff scheinen beide einen signifikanten Unterschied im Preis auszumachen. Auch die Zusammenwirkung von Gewicht und Schliff (intercept) ergeben signifikante Werte. Die Graphiken veranschaulichen dieses Ergebnis.
+
+
 # Noch eine Überlegung
 Haben Sie dabei explorativ oder konfirmativ gearbeitet? Was hat das für eine Auswirkung auf die Interpretation der Ergebnisse?
 
+# Voraussetzung für eine ANOVA
+Es herrscht Varianzhomogenität innerhalb der Populationen. Da die Stichproben groß sind, ist die ANOVA robust gegen Verletzungen dieses Kriteriums.
+
 # Lizenz
 Dieses Werk ist lizenziert unter einer CC-BY-NC-SA Lizenz.
+
+Diese Datei darf weiter als Beispiel genutzt werden.
+
