@@ -136,7 +136,7 @@ print(pyreg.model.summary)
 # dass y im linearen Verhältnis zu x1 und x2 steht? Machen Sie eine Grafik wie
 # oben für y ~ x1 + x2, **nachdem Sie sich eine Antwort überlegt haben**.
 
-ggplot(pyreg,aes(x=x1+x2,y=y)) + geom_point() + geom_smooth(method="lm")
+ggplot(pyreg,aes(x=x1,y=x2)) + geom_point(aes(size=y))
 
 # Glauben Sie jetzt, dass y im linearen Verhältnis zu x1 und x2 steht? Warum (nicht)?
 
