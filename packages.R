@@ -12,6 +12,8 @@ packages.used <- c("knitr","knitcitations"
                    ,"zoo"
                    ,"xtable"
                    ,"ez"
+                   ,"faraway"
+                   ,"lme4"
                    )
 
 install.packages(packages.used,dependencies = TRUE)
