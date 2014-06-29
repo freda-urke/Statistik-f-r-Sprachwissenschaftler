@@ -48,7 +48,7 @@ Die Items in dieser Studie sind "Szenarien", also Situationen wo man mehr oder w
 Allerdings merken wir, dass `scenario` falsch kodiert ist, was wir korrigieren müssen:
 
 ```{r}
-scenario.korr <- as.factor(stimmen$scenario)
+stimmen$scenario <- as.factor(stimmen$scenario)
 ```
 
 ## Auswirkung der experimentellen Manipulation
@@ -85,7 +85,7 @@ Machen Sie das gleiche für `scenario`.
 
 ```{r, fig.width=7, fig.height=4, fig.align='center'}
 ggplot(stimmen) +
-  geom_boxplot(aes(x=scenario.korr,y=frequency))
+  geom_boxplot(aes(x=scenario,y=frequency))
 ```
 
 Gibt es mehr Varianz zwischen Szenarien oder zwischen Versuchspersonen? 
